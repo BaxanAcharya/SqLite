@@ -2,10 +2,13 @@ package com.biplav.sqllite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.biplav.sqllite.helper.MyHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,11 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etword=findViewById(R.id.etWord);
         etMeaning=findViewById(R.id.etMeaning);
         btnaddWord=findViewById(R.id.btnAdd);
+
+
         btnaddWord.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        MyHelper myHelper=new MyHelper(this);
+        SQLiteDatabase sqLiteDatabase=myHelper.getWritableDatabase();
 
     }
 }
