@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.biplav.sqllite.helper.MyHelper;
 
@@ -31,6 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         MyHelper myHelper=new MyHelper(this);
         SQLiteDatabase sqLiteDatabase=myHelper.getWritableDatabase();
+
+        boolean insert=myHelper.InsertData(etword.getText().toString(),etMeaning.getText().toString(),sqLiteDatabase);
+
+        if(insert)
+        {
+            Toast.makeText(this, "Inserted", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Some error", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }
