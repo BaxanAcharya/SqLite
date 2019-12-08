@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.biplav.sqllite.helper.MyHelper;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText etword,etMeaning;
     Button btnaddWord;
+    TextView tv_others;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etword=findViewById(R.id.etWord);
         etMeaning=findViewById(R.id.etMeaning);
         btnaddWord=findViewById(R.id.btnAdd);
-
+        tv_others=findViewById(R.id.tv_others);
+        tv_others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(), OtherActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnaddWord.setOnClickListener(this);
     }

@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_others"
+        android:layout_width="wrap_content"
+        android:text="Others"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+
     <EditText
         android:id="@+id/etWord"
         android:layout_width="match_parent"
